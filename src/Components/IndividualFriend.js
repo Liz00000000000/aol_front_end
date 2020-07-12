@@ -13,6 +13,7 @@ export class IndividualFriend extends Component {
     render() {
         const friend = this.props.users.find(user => user.id === this.findTheFriendId(this.props))
        console.log(friend)
+       if (!friend) return <div>Loading...</div>
         return (
             <div>
                 {friend.isOnline ? <p><strong>{friend.username}</strong></p> : <p>{friend.username}</p>}

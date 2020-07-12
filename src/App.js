@@ -19,7 +19,7 @@ export class App extends Component {
     emails: [],
     instantMessages: [],
     interests: [],
-    loggedInUser: {"id":2,"first_name":"Sara","last_name":"Carpenter","age":61,"email":"sara.carpenter@example.com","password":"shakur","picture":"https://randomuser.me/api/portraits/women/8.jpg","location":"Ratoath","created_at":"2020-07-12T14:54:01.971Z","updated_at":"2020-07-12T14:54:01.971Z","username":"rob.kuhn","isOnline":false},
+    loggedInUser: {"id":31,"first_name":"Andreas","last_name":"Durand","age":73,"email":"andreas.durand@example.com","password":"halifax","picture":"https://randomuser.me/api/portraits/men/38.jpg","location":"Boécourt","username":"demetrius.schultz","isOnline":false,"created_at":"2020-07-12T22:13:09.256Z","updated_at":"2020-07-12T22:13:09.256Z"},
     awayMessages: [],
     friends: [],
     awayMessage: null 
@@ -38,6 +38,7 @@ export class App extends Component {
     const awayMessage = this.state.awayMessages.filter(message => message.user_id === this.state.loggedInUser.id)
     const friends = this.state.friends.filter(friend => friend.friend_1 === this.state.loggedInUser.id || friend.friend_2 === this.state.loggedInUser.id)
     const instantMesages = this.state.instantMessages.filter(message => message.sender_id === this.state.loggedInUser.id || message.reciever_id === this.state.loggedInUser.id)
+    console.log(this.state.instantMessages)
     return (
     <div>
       <InstantMessageer awayMessage={awayMessage} friends={friends} users={this.state.users} instantMessages={instantMesages} loggedInUser={this.state.loggedInUser}/> 
