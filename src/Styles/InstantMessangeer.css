@@ -1,4 +1,8 @@
 .instant-message-div{
    position: relative;
+   float: right;
+   margin-right: 10px;
+   margin-left: 590px;
+   width: fit-content;
 
 }
