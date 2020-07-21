@@ -19,7 +19,7 @@ export class App extends Component {
     emails: [],
     instantMessages: [],
     interests: [],
-    loggedInUser: {"id":31,"first_name":"Andreas","last_name":"Durand","age":73,"email":"andreas.durand@example.com","password":"halifax","picture":"https://randomuser.me/api/portraits/men/38.jpg","location":"Boécourt","username":"demetrius.schultz","isOnline":false,"created_at":"2020-07-12T22:13:09.256Z","updated_at":"2020-07-12T22:13:09.256Z"},
+    loggedInUser: {"id":61,"first_name":"Ülkü","last_name":"Kılıççı","age":60,"email":"ulku.kilicci@example.com","password":"hammer1","picture":"https://randomuser.me/api/portraits/women/96.jpg","location":"Yozgat","username":"kai_hessel","isOnline":false,"created_at":"2020-07-21T14:45:52.073Z","updated_at":"2020-07-21T14:45:52.073Z"},
     awayMessages: [],
     friends: [],
     awayMessage: null 
