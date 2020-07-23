@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export class Mail extends Component {
     render() {
@@ -9,6 +10,7 @@ export class Mail extends Component {
         const reciever = this.props.users.find(user => user.id === email.reciever_id)
         return (
             <div className='email-holder'>
+                <Link to='/'><div className='ui tiny button'>x</div></Link>
                 <img className='thumbnail' src={sender.picture} alt={sender.first_name}/> {sender.first_name + ' ' + sender.last_name}
                 <br></br>Subject: {email.subject_line}
                 <div className='email-text'>
