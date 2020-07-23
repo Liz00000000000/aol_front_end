@@ -19,7 +19,7 @@ export class HomePage extends Component {
         const yourMail = this.props.emails.filter(email => email.reciever_id === this.props.loggedInUser.id)
         const sentMail = this.props.emails.filter(email => email.sender_id === this.props.loggedInUser.id)
          return (
-            <div className='email-holder'>
+            <div className='ui vertically divided grid'>
                 <button className='ui medium button' onClick={this.handleOnClick}>Inbox</button>
                 <button className='ui medium button' onClick={this.handleOnClick}>OutBox</button>
                 {this.state.seeNewMessages ? yourMail.map(email => <Email users={this.props.users} key={email.id} {...email} />) : null  }

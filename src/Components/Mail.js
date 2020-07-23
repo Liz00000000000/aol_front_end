@@ -11,7 +11,7 @@ export class Mail extends Component {
         return (
             <div className='email-holder'>
                 <Link to='/'><div className='ui tiny button'>x</div></Link>
-                <img className='thumbnail' src={sender.picture} alt={sender.first_name}/> {sender.first_name + ' ' + sender.last_name}
+                <img className='ui small circular image' src={sender.picture} alt={sender.first_name}/> {sender.first_name + ' ' + sender.last_name}
                 <br></br>Subject: {email.subject_line}
                 <div className='email-text'>
                     {email.content}

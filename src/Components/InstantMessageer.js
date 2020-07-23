@@ -6,7 +6,9 @@ export class InstantMessageer extends Component {
     render() {
         return (
             <div className='instant-message-div'>
+                <div className='ui grid'>
                 {this.props.friends.map(friend => <IndividualFriend key={friend.id} {...friend} users={this.props.users} instantMessages={this.props.instantMesages} loggedInUser={this.props.loggedInUser} />)}
+                </div>
             </div>
         )
     }

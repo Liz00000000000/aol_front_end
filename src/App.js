@@ -40,7 +40,7 @@ export class App extends Component {
     const instantMesages = this.state.instantMessages.filter(message => message.sender_id === this.state.loggedInUser.id || message.reciever_id === this.state.loggedInUser.id)
     console.log(this.state.instantMessages)
     return (
-    <div>
+    <div className='blue row'>
       <InstantMessageer awayMessage={awayMessage} friends={friends} users={this.state.users} instantMessages={instantMesages} loggedInUser={this.state.loggedInUser}/> 
       <Switch>
         <Route path='/:id' render={(history)=> <Mail history={history} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/>}/>
