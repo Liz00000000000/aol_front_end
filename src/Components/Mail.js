@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 export class Mail extends Component {
     render() {
         const thisId = this.props.history.match.params.id
+        const previousEmail = thisId - 1
+        const nextEmail = parseInt(thisId) + 1
         const email = this.props.emails.find(email => email.id == thisId)
         if (!email) return <div>Loading...</div>
         const sender = this.props.users.find(user => user.id === email.sender_id)
@@ -15,6 +17,19 @@ export class Mail extends Component {
                 <br></br>Subject: {email.subject_line}
                 <div className='email-text'>
                     {email.content}
+                </div>
+                <div>
+                    <Link to={`/${previousEmail}`}>
+                       <button className="ui labeled icon button">
+                        <i className="left arrow icon">
+                        </i>Before</button>
+                        </Link>
+                    <Link to={`/${nextEmail}`}>
+                        <button className="ui right labeled icon button">
+                        <i className="right arrow icon"></i>
+                        Next
+                        </button>
+                    </Link>
                 </div>
             </div>
         )
