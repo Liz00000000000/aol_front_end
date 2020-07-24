@@ -11,14 +11,23 @@ export class Mail extends Component {
         const sender = this.props.users.find(user => user.id === email.sender_id)
         const reciever = this.props.users.find(user => user.id === email.reciever_id)
         return (
-            <div className='email-holder'>
+            <div className='ui three doubling stackable cards'>
+            <div className='ui card'>
                 <Link to='/'><div className='ui tiny button'>x</div></Link>
                 <img className='ui small circular image' src={sender.picture} alt={sender.first_name}/> {sender.first_name + ' ' + sender.last_name}
+                <div className='content'>
                 <br></br>Subject: {email.subject_line}
+                </div>
+                <div className='content'>
                 <div className='email-text'>
                     {email.content}
                 </div>
-                <div>
+                </div>
+                <div className='extra content'>
+                    <button className='ui medium button'>Reply</button>
+                    <button className='ui medium button'>Forward</button>
+                </div>
+                <div className='extra content'>
                     <Link to={`/${previousEmail}`}>
                        <button className="ui labeled icon button">
                         <i className="left arrow icon">
@@ -31,6 +40,7 @@ export class Mail extends Component {
                         </button>
                     </Link>
                 </div>
+            </div>
             </div>
         )
     }
