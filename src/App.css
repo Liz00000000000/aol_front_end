@@ -3,7 +3,7 @@
   background-color: grey;
 }
 #x{
-  background-color: red;
+  background-color: white;
   border-style: solid;
   border-width: 2px;
   color: black;
@@ -16,9 +16,14 @@
  margin-left: 5vw;
  margin-right: 5vw;
  margin-bottom: 5vh;
- background-color: blue;
+ background-color: rgb(151, 151, 253);
  height: 90vh;
  border: 7px solid black;
+}
+#mailbutton{
+  color: white;
+  font-size: 90px;
+  margin-left: 5vw;
 }
 
 .App-logo {

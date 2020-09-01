@@ -12,11 +12,10 @@ export class IndividualFriend extends Component {
 
     render() {
         const friend = this.props.users.find(user => user.id === this.findTheFriendId(this.props))
-       console.log(friend)
        if (!friend) return <div>Loading...</div>
         return (
             <div>
-                {friend.isOnline ? <p><strong>{friend.username}</strong></p> : <p>{friend.username}</p>}
+                {friend.isOnline ? <p><strong onClick={() => this.props.instaBoxVisable(friend.id)}>{friend.username}</strong></p> : <p onClick={() => this.props.instaBoxVisable(friend.id)}>{friend.username}</p>}
             </div>
         )
     }

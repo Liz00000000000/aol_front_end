@@ -9,19 +9,22 @@ export class HomePage extends Component {
         seeSentMessages: false
     }
 
-    seeMail = () => this.setState({ showMail: !this.state.showMail })
-
     handleOnClick = () => this.setState({ seeNewMessages: !this.state.seeNewMessages, seeSentMessages: !this.state.seeSentMessages})
 
     render() {
-        if(!this.props.showMail) return <button className='ui large button' onClick={this.props.seeMail}>You've Got Mail</button>
+        if(!this.props.showMail) return <h1><i id='mailbutton' className="envelope icon" onClick={this.props.seeMail}></i></h1>
         const yourMail = this.props.emails.filter(email => email.reciever_id === this.props.loggedInUser.id)
         const sentMail = this.props.emails.filter(email => email.sender_id === this.props.loggedInUser.id)
          return (
              <div className='email-holder'>
+                 <div className='buttons'>
+                     <div className='ui large buttons'>
+                        <button className='ui positive button' onClick={this.handleOnClick}>Inbox</button>
+                        <div className='or'></div>
+                        <button className='ui positive button' onClick={this.handleOnClick}>OutBox</button>
+                    </div>          
+                 </div>
                 <div className='ui vertically divided grid'>
-                    <button className='ui medium button' onClick={this.handleOnClick}>Inbox</button>
-                    <button className='ui medium button' onClick={this.handleOnClick}>OutBox</button>
                     {this.state.seeNewMessages ? yourMail.map(email => <Email seeMail={this.seeMail} users={this.props.users} key={email.id} {...email} />) : null  }
                     {this.state.seeSentMessages ? sentMail.map(email => <Email seeMail={this.seeMail} users={this.props.users} key={email.id} {...email} />) : null  }
                 </div>
