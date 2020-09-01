@@ -13,7 +13,7 @@ export class Mail extends Component {
         return (
             <div className='ui three doubling stackable cards'>
             <div className='ui large card'>
-                <Link to='/'><div className='ui tiny button'>x</div></Link>
+                <Link to='/'><div onClick={this.props.keepMailOpen} className='ui tiny button'>x</div></Link>
                 <img className='ui small circular image' src={sender.picture} alt={sender.first_name}/> {sender.first_name + ' ' + sender.last_name}
                 <div className='content'>
                 <br></br>Subject: {email.subject_line}

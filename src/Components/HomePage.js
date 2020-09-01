@@ -5,7 +5,6 @@ import '../Styles/HomePage.css'
 
 export class HomePage extends Component {
     state = {
-        showMail: false,
         seeNewMessages: true,
         seeSentMessages: false
     }
@@ -15,16 +14,18 @@ export class HomePage extends Component {
     handleOnClick = () => this.setState({ seeNewMessages: !this.state.seeNewMessages, seeSentMessages: !this.state.seeSentMessages})
 
     render() {
-        if(!this.state.showMail) return <button className='ui large button' onClick={this.seeMail}>You've Got Mail</button>
+        if(!this.props.showMail) return <button className='ui large button' onClick={this.props.seeMail}>You've Got Mail</button>
         const yourMail = this.props.emails.filter(email => email.reciever_id === this.props.loggedInUser.id)
         const sentMail = this.props.emails.filter(email => email.sender_id === this.props.loggedInUser.id)
          return (
-            <div className='ui vertically divided grid'>
-                <button className='ui medium button' onClick={this.handleOnClick}>Inbox</button>
-                <button className='ui medium button' onClick={this.handleOnClick}>OutBox</button>
-                {this.state.seeNewMessages ? yourMail.map(email => <Email users={this.props.users} key={email.id} {...email} />) : null  }
-                 {this.state.seeSentMessages ? sentMail.map(email => <Email users={this.props.users} key={email.id} {...email} />) : null  }
-            </div>
+             <div className='email-holder'>
+                <div className='ui vertically divided grid'>
+                    <button className='ui medium button' onClick={this.handleOnClick}>Inbox</button>
+                    <button className='ui medium button' onClick={this.handleOnClick}>OutBox</button>
+                    {this.state.seeNewMessages ? yourMail.map(email => <Email seeMail={this.seeMail} users={this.props.users} key={email.id} {...email} />) : null  }
+                    {this.state.seeSentMessages ? sentMail.map(email => <Email seeMail={this.seeMail} users={this.props.users} key={email.id} {...email} />) : null  }
+                </div>
+             </div>
         )
     }
 }
