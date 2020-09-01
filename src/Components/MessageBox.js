@@ -7,7 +7,8 @@ export class MessageBox extends Component{
         return(
             <div>
                 <button className='ui tiny button' onClick={this.props.removeMessageBox}>x</button>
-                <h2>Hi Greg</h2>
+                {this.props.friend.first_name}
+                <input></input>
             </div>
         )
     }

@@ -16,9 +16,11 @@
  margin-left: 5vw;
  margin-right: 5vw;
  margin-bottom: 5vh;
- background-color: rgb(151, 151, 253);
+ background-color: rgb(26, 88, 26);
  height: 90vh;
  border: 7px solid black;
+ font-family: 'VT323', monospace;
+ font-size: 25px;
 }
 #mailbutton{
   color: white;

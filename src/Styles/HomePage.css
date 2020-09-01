@@ -10,6 +10,7 @@
   object-fit: cover;
   overflow: hidden;
   position: relative;
+  font-size: 20px;
 }
 
 .buttons{

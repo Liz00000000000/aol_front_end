@@ -6,10 +6,10 @@ import MessageBox from './MessageBox'
 export class InstantMessageer extends Component {
     state = {
         instaBoxVisable: false,
-        id: 0
+        friend: {}
     }
 
-    instaBoxVisable = (id) => this.setState({ instaBoxVisable: true, id: id })
+    instaBoxVisable = (friend) => this.setState({ instaBoxVisable: true, friend: friend })
 
     removeMessageBox = () => this.setState({ instaBoxVisable: false })
 
@@ -21,7 +21,7 @@ export class InstantMessageer extends Component {
                     {this.props.friends.map(friend => <IndividualFriend instaBoxVisable={this.instaBoxVisable} key={friend.id} {...friend} users={this.props.users} instantMessages={this.props.instantMesages} loggedInUser={this.props.loggedInUser} />)}
                     </div>
                 </div>
-                {this.state.instaBoxVisable ? <div><MessageBox removeMessageBox={this.removeMessageBox} id={this.state.id} /></div> : null }
+                {this.state.instaBoxVisable ? <div><MessageBox removeMessageBox={this.removeMessageBox} friend={this.state.friend} /></div> : null }
             </div>
         )
     }
