@@ -19,4 +19,5 @@ code {
 }
 button{
   border: 3px solid black;
+  font-family: 'VT323', monospace;
 }
