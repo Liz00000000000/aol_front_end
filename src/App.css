@@ -22,6 +22,7 @@
  border: 7px solid black;
  font-family: 'VT323', monospace;
  font-size: 25px;
+ overflow: hidden;
 }
 #mailbutton{
   color: white;
