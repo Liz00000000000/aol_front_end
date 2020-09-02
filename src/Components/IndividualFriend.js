@@ -15,7 +15,7 @@ export class IndividualFriend extends Component {
        if (!friend) return <div>Loading...</div>
         return (
             <div>
-                {friend.isOnline ? <p><strong onClick={() => this.props.instaBoxVisable(friend)}>{friend.username}</strong></p> : <p onClick={() => this.props.instaBoxVisable(friend)}>{friend.username}</p>}
+                {friend.isOnline ? <p><strong onClick={() => this.props.instaBoxVisable(friend)}>{friend.username}</strong></p> : null}
             </div>
         )
     }

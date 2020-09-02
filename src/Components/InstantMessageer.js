@@ -19,6 +19,7 @@ export class InstantMessageer extends Component {
             <div className='aim-box'>
                 <div className='instant-message-div'>
                     <div className='ui row'>
+                        <p><strong>Friends Online</strong></p>
                     {friends.map(friend => <IndividualFriend instaBoxVisable={this.instaBoxVisable} key={friend.id} {...friend} users={this.props.users} instantMessages={this.props.instantMesages} loggedInUser={this.props.loggedInUser} />)}
                     </div>
                 </div>
