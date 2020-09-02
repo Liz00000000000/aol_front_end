@@ -14,11 +14,12 @@ export class InstantMessageer extends Component {
     removeMessageBox = () => this.setState({ instaBoxVisable: false })
 
     render() {
+        const friends = this.props.friends.filter((v, i, a) => a.indexOf(v) === i); 
         return (
             <div className='aim-box'>
                 <div className='instant-message-div'>
                     <div className='ui row'>
-                    {this.props.friends.map(friend => <IndividualFriend instaBoxVisable={this.instaBoxVisable} key={friend.id} {...friend} users={this.props.users} instantMessages={this.props.instantMesages} loggedInUser={this.props.loggedInUser} />)}
+                    {friends.map(friend => <IndividualFriend instaBoxVisable={this.instaBoxVisable} key={friend.id} {...friend} users={this.props.users} instantMessages={this.props.instantMesages} loggedInUser={this.props.loggedInUser} />)}
                     </div>
                 </div>
                 {this.state.instaBoxVisable ? <div><MessageBox removeMessageBox={this.removeMessageBox} friend={this.state.friend} /></div> : null }

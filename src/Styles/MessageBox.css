@@ -1,0 +1,7 @@
+.instant-message{
+    margin-left: 50vw;
+    margin-right: 15vw;
+    padding: 5px 5px 5px 5px;
+    border: 3px solid black;
+    width: fit-content;
+}
