@@ -14,7 +14,7 @@ export class Mail extends Component {
         return (
             <div className='individual-email'>
                 <div className='ui large card'>
-                    <Link to='/'><div onClick={this.props.keepMailOpen} className='ui tiny button'>x</div></Link>
+                    <Link to='/'><button onClick={this.props.keepMailOpen}>x</button></Link>
                     <img className='ui small circular image' src={sender.picture} alt={sender.first_name}/> {sender.first_name + ' ' + sender.last_name}
                     <div className='content'>
                     <br></br>Subject: {email.subject_line}
@@ -25,17 +25,17 @@ export class Mail extends Component {
                     </div>
                     </div>
                     <div className='extra content'>
-                        <button className='ui medium button'>Reply</button>
-                        <button className='ui medium button'>Forward</button>
+                        <button >Reply</button>
+                        <button >Forward</button>
                     </div>
                     <div className='extra content'>
                         <Link to={`/${previousEmail}`}>
-                        <button className="ui labeled icon button">
+                        <button>
                             <i className="left arrow icon">
                             </i>Before</button>
                             </Link>
                         <Link to={`/${nextEmail}`}>
-                            <button className="ui right labeled icon button">
+                            <button>
                             <i className="right arrow icon"></i>
                             Next
                             </button>

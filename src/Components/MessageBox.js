@@ -17,13 +17,13 @@ export class MessageBox extends Component{
         console.log(this.props)
         return(
             <div className='instant-message'>
-                <button className='ui tiny button' onClick={this.props.removeMessageBox}>x</button>
+                <button onClick={this.props.removeMessageBox}>x</button>
                 {this.props.friend.first_name}
                 {this.state.messages.map((mess,index) => <p key={index}>{mess}</p>)}
                 <br></br>
                 <input onChange={this.handleOnChange} value={this.state.newMessage} name='newMessage'></input>
                 <br></br>
-                <button className='ui tiny button' onClick={this.submitMessage}>Submit</button>
+                <button onClick={this.submitMessage}>Submit</button>
             </div>
         )
     }
