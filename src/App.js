@@ -5,6 +5,7 @@ import HomePage from './Components/HomePage';
 import Mail from './Components/Mail'
 import InstantMessageer from './Components/InstantMessageer'
 import { Link } from 'react-router-dom'
+import InterestsBar from './Components/InterestsBar'
 
 const usersUrl = 'http://localhost:3000/users'
 const emailsUrl = 'http://localhost:3000/emails'
@@ -54,6 +55,7 @@ export class App extends Component {
         <Route path='/:id' render={(history)=> <Mail keepMailOpen={this.keepMailOpen} history={history} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/>}/>
         <Route path='/' render={() => <HomePage seeMail={this.seeMail} showMail={this.state.showMail} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/> } />
       </Switch>
+      <InterestsBar />
     </div>
   )
  }
