@@ -6,6 +6,7 @@ import Mail from './Components/Mail'
 import InstantMessageer from './Components/InstantMessageer'
 import { Link } from 'react-router-dom'
 import InterestsBar from './Components/InterestsBar'
+import InterestPage from './Components/InterestPage'
 
 const usersUrl = 'http://localhost:3000/users'
 const emailsUrl = 'http://localhost:3000/emails'
@@ -44,6 +45,7 @@ export class App extends Component {
   hideMail = () => this.setState({ showMail: false })
 
   render(){
+    const myInterests = this.state.interests.filter(int => int.user_id === this.state.loggedInUser.id)
     const awayMessage = this.state.awayMessages.filter(message => message.user_id === this.state.loggedInUser.id)
     const friends = this.state.friends.filter(friend => friend.friend_1 === this.state.loggedInUser.id || friend.friend_2 === this.state.loggedInUser.id)
     const instantMesages = this.state.instantMessages.filter(message => message.sender_id === this.state.loggedInUser.id || message.reciever_id === this.state.loggedInUser.id)
@@ -52,10 +54,11 @@ export class App extends Component {
       <Link to='/' onClick={this.hideMail}><button>x</button></Link>
       <InstantMessageer awayMessage={awayMessage} friends={friends} users={this.state.users} instantMessages={instantMesages} loggedInUser={this.state.loggedInUser}/> 
       <Switch>
+        <Route path='/:topic' render={(history)=> <InterestPage history={history} myInterests={myInterests}/>}></Route>
         <Route path='/:id' render={(history)=> <Mail keepMailOpen={this.keepMailOpen} history={history} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/>}/>
         <Route path='/' render={() => <HomePage seeMail={this.seeMail} showMail={this.state.showMail} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/> } />
       </Switch>
-      <InterestsBar />
+      <InterestsBar myInterests={myInterests} />
     </div>
   )
  }

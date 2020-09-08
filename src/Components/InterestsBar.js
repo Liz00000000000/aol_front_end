@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const InterestsBar = props => {
+    const topic = props.myInterests.map(top => top.topic)
     return (
         <div>
-            Interest
+            {topic.map((topic, index) => <Link to={`/${topic}`}><p key={index}>{topic}</p></Link>)}
         </div>
     )
 }
