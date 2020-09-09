@@ -7,7 +7,7 @@ export class Email extends Component {
         const reciever = this.props.users.find(user => user.id === this.props.reciever_id)
         return (
             <div className='email-container'>
-               <Link to={`/${this.props.id}`}>{sender.first_name + ' ' + sender.last_name} {this.props.subject_line} {reciever.first_name + ' ' + reciever.last_name}</Link>
+               <Link to={`email/${this.props.id}`}>{sender.first_name + ' ' + sender.last_name} {this.props.subject_line} {reciever.first_name + ' ' + reciever.last_name}</Link>
             </div>
         )
     }

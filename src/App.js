@@ -54,8 +54,8 @@ export class App extends Component {
       <Link to='/' onClick={this.hideMail}><button>x</button></Link>
       <InstantMessageer awayMessage={awayMessage} friends={friends} users={this.state.users} instantMessages={instantMesages} loggedInUser={this.state.loggedInUser}/> 
       <Switch>
-        <Route path='/:topic' render={(history)=> <InterestPage history={history} myInterests={myInterests}/>}></Route>
-        <Route path='/:id' render={(history)=> <Mail keepMailOpen={this.keepMailOpen} history={history} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/>}/>
+        <Route path='/interest/:topic' render={(history)=> <InterestPage history={history} myInterests={myInterests}/>}></Route>
+        <Route path='/email/:id' render={(history)=> <Mail keepMailOpen={this.keepMailOpen} history={history} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/>}/>
         <Route path='/' render={() => <HomePage seeMail={this.seeMail} showMail={this.state.showMail} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/> } />
       </Switch>
       <InterestsBar myInterests={myInterests} />

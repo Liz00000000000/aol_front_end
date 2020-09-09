@@ -5,7 +5,7 @@ const InterestsBar = props => {
     const topic = props.myInterests.map(top => top.topic)
     return (
         <div>
-            {topic.map((topic, index) => <Link to={`/${topic}`}><p key={index}>{topic}</p></Link>)}
+            {topic.map((topic, index) => <Link to={`/interest/${topic}`}><p key={index}>{topic}</p></Link>)}
         </div>
     )
 }

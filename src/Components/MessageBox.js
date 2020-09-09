@@ -14,7 +14,6 @@ export class MessageBox extends Component{
 
 
     render(){
-        console.log(this.props)
         return(
             <div className='instant-message'>
                 <button onClick={this.props.removeMessageBox}>x</button>

@@ -8,9 +8,9 @@ export class Mail extends Component {
         const previousEmail = thisId - 1
         const nextEmail = parseInt(thisId) + 1
         const email = this.props.emails.find(email => email.id === thisId)
+        console.log(this.props)
         if (!email) return <div>Loading...</div>
         const sender = this.props.users.find(user => user.id === email.sender_id)
-        // const reciever = this.props.users.find(user => user.id === email.reciever_id)
         return (
             <div className='individual-email'>
                 <div className='ui large card'>
