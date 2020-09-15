@@ -11,7 +11,18 @@ export class Mail extends Component {
 
     handleOnChange = e => this.setState({ [e.target.name]: e.target.value })
 
-    send = () => console.log(this.state.input)
+    send = () => {
+        fetch('http://localhost:3000/emails', {
+            method: 'POST',
+            headers: {
+                'content-type': 'applicaiton-json',
+                accept: 'application-json'
+            },
+            body: JSON.stringify({
+                content: this.state.input,
+            })
+        })
+    }
 
     handleOnClick = event => this.setState({ [event.target.name]: true })
 
