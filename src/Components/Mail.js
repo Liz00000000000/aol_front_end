@@ -30,12 +30,12 @@ export class Mail extends Component {
                         <button >Forward</button>
                     </div>
                     <div className='extra content'>
-                        <Link to={`/${previousEmail}`}>
+                        <Link to={`/email/${previousEmail}`}>
                         <button>
                             <i className="left arrow icon">
                             </i>Before</button>
                             </Link>
-                        <Link to={`/${nextEmail}`}>
+                        <Link to={`/email/${nextEmail}`}>
                             <button>
                             <i className="right arrow icon"></i>
                             Next
