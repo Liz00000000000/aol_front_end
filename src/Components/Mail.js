@@ -3,13 +3,20 @@ import { Link } from 'react-router-dom'
 import '../Styles/Mail.css'
 
 export class Mail extends Component {
+    state = {
+        response: false,
+        forward: false,
+        newMessageInput: ''
+    }
+
+    handleOnClick = event => this.setState({ [event.target.name]: true })
+
     render() {
+        console.log(this.state)
         const thisId = this.props.history.match.params.id
-        console.log(thisId)
         const previousEmail = thisId - 1
         const nextEmail = parseInt(thisId) + 1
         const email = this.props.emails.find(email => email.id === parseInt(thisId))
-        console.log(this.props.emails)
         if (!email) return <div>Loading...</div>
         const sender = this.props.users.find(user => user.id === email.sender_id)
         return (
@@ -26,8 +33,8 @@ export class Mail extends Component {
                     </div>
                     </div>
                     <div className='extra content'>
-                        <button >Reply</button>
-                        <button >Forward</button>
+                        <button onClick={this.handleOnClick} name='response' value='response'>Reply</button>
+                        <button onClick={this.handleOnClick} name='forward' value='forward'>Forward</button>
                     </div>
                     <div className='extra content'>
                         <Link to={`/email/${previousEmail}`}>
