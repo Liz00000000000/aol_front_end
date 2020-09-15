@@ -26,12 +26,12 @@ export class Mail extends Component {
                 <Link to='/'><button onClick={this.props.keepMailOpen}>x</button></Link>
                 <img className='ui small circular image' src={sender.picture} alt={sender.first_name}/> {sender.first_name + ' ' + sender.last_name}
                 <div className='content'>
-                <br></br>Subject: {email.subject_line}
+                <br></br>Subject: RE: {email.subject_line}
                 </div>
                 <div className='content'>
-                <div className='email-text'>
-                    <input></input>
-                </div>
+                    <div className='email-text'>
+                        <input className='reply'></input>
+                    </div>
                 </div>
                 <div className='extra content'>
                     <button onClick={this.send} name='response' value='response'>Send</button>
@@ -41,12 +41,12 @@ export class Mail extends Component {
                     <Link to={`/email/${previousEmail}`}>
                     <button>
                         <i className="left arrow icon">
-                        </i>Before</button>
+                        </i>Answer Before</button>
                         </Link>
                     <Link to={`/email/${nextEmail}`}>
                         <button>
                         <i className="right arrow icon"></i>
-                        Next
+                        Answer Next
                         </button>
                     </Link>
                 </div>
