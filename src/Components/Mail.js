@@ -5,10 +5,11 @@ import '../Styles/Mail.css'
 export class Mail extends Component {
     render() {
         const thisId = this.props.history.match.params.id
+        console.log(thisId)
         const previousEmail = thisId - 1
         const nextEmail = parseInt(thisId) + 1
-        const email = this.props.emails.find(email => email.id === thisId)
-        console.log(this.props)
+        const email = this.props.emails.find(email => email.id === parseInt(thisId))
+        console.log(this.props.emails)
         if (!email) return <div>Loading...</div>
         const sender = this.props.users.find(user => user.id === email.sender_id)
         return (
