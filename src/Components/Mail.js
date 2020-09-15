@@ -6,14 +6,17 @@ export class Mail extends Component {
     state = {
         response: false,
         forward: false,
-        newMessageInput: ''
+        input: ''
     }
 
-    send = () => console.log(this.state.newMessageInput)
+    handleOnChange = e => this.setState({ [e.target.name]: e.target.value })
+
+    send = () => console.log(this.state.input)
 
     handleOnClick = event => this.setState({ [event.target.name]: true })
 
     render() {
+        console.log(this.state.input)
         const thisId = this.props.history.match.params.id
         const previousEmail = thisId - 1
         const nextEmail = parseInt(thisId) + 1
@@ -30,7 +33,7 @@ export class Mail extends Component {
                 </div>
                 <div className='content'>
                     <div className='email-text'>
-                        <input className='reply'></input>
+                        <input className='reply' name='input' onChange={this.handleOnChange}></input>
                     </div>
                 </div>
                 <div className='extra content'>
