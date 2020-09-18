@@ -19,15 +19,28 @@ export class Mail extends Component {
                 accept: 'application-json'
             },
             body: JSON.stringify({
+                user_id: this.props.loggedInUser.id,
                 content: this.state.input,
+                subject_line: this.state.subject_line,
+                sender_id: this.state.sender.id,
+                read: false
             })
-        })
+        }).then(stuff => stuff.json()).then(it => console.log(it))
     }
+
+    componentDidMount(){
+        const thisId = this.props.history.match.params.id
+        const email = this.props.emails.find(email => email.id === parseInt(thisId))
+        const sender = this.props.users.find(user => user.id === email.sender_id)
+        this.sendToState(sender, email.subject_line)
+    }
+
+    sendToState = (sender, subject) => this.setState({ sender: sender, subject: subject })
 
     handleOnClick = event => this.setState({ [event.target.name]: true })
 
     render() {
-        console.log(this.state.input)
+        console.log(this.state)
         const thisId = this.props.history.match.params.id
         const previousEmail = thisId - 1
         const nextEmail = parseInt(thisId) + 1
