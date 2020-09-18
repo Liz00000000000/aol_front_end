@@ -15,8 +15,8 @@ export class Mail extends Component {
         fetch('http://localhost:3000/emails', {
             method: 'POST',
             headers: {
-                'content-type': 'applicaiton-json',
-                accept: 'application-json'
+                'content-type': 'application/json',
+                accept: 'application/json'
             },
             body: JSON.stringify({
                 user_id: this.props.loggedInUser.id,
