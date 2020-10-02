@@ -25,7 +25,8 @@ export class Mail extends Component {
                 sender_id: this.state.sender.id,
                 read: false
             })
-        }).then(stuff => stuff.json()).then(it => console.log(it))
+        }).then(stuff => stuff.json()).then(it => alert('Your Email Has Been Sent'))
+        this.setState({ response: false, forward: false})
     }
 
     componentDidMount(){
@@ -42,7 +43,6 @@ export class Mail extends Component {
     handleOnClick = event => this.setState({ [event.target.name]: true })
 
     render() {
-        console.log(this.state)
         const thisId = this.props.history.match.params.id
         const previousEmail = thisId - 1
         const nextEmail = parseInt(thisId) + 1
