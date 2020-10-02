@@ -19,7 +19,7 @@ export class Mail extends Component {
                 accept: 'application/json'
             },
             body: JSON.stringify({
-                user_id: this.props.loggedInUser.id,
+                reciever_id: this.props.loggedInUser.id,
                 content: this.state.input,
                 subject_line: this.state.subject_line,
                 sender_id: this.state.sender.id,
@@ -32,7 +32,9 @@ export class Mail extends Component {
         const thisId = this.props.history.match.params.id
         const email = this.props.emails.find(email => email.id === parseInt(thisId))
         const sender = this.props.users.find(user => user.id === email.sender_id)
-        this.sendToState(sender, email.subject_line)
+        if (email) {
+            this.sendToState(sender, email.subject_line)
+        }
     }
 
     sendToState = (sender, subject) => this.setState({ sender: sender, subject: subject })
@@ -45,8 +47,8 @@ export class Mail extends Component {
         const previousEmail = thisId - 1
         const nextEmail = parseInt(thisId) + 1
         const email = this.props.emails.find(email => email.id === parseInt(thisId))
-        const sender = this.props.users.find(user => user.id === email.sender_id)
         if (!email) return <div>Loading...</div>
+        const sender = this.props.users.find(user => user.id === email.sender_id)
         if (this.state.forward) return (
             <div className='individual-email'>
             <div className='ui large card'>
