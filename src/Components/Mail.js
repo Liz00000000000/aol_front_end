@@ -26,7 +26,7 @@ export class Mail extends Component {
                 read: false
             })
         }).then(stuff => stuff.json()).then(it => alert('Your Email Has Been Sent'))
-        this.setState({ response: false, forward: false})
+        this.setState({ response: false, forward: false, input: ''})
     }
 
     componentDidMount(){
