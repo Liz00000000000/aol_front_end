@@ -19,10 +19,10 @@ export class Mail extends Component {
                 accept: 'application/json'
             },
             body: JSON.stringify({
-                reciever_id: this.props.loggedInUser.id,
+                reciever_id: this.state.sender.id,
                 content: this.state.input,
                 subject_line: this.state.subject_line,
-                sender_id: this.state.sender.id,
+                sender_id: this.props.loggedInUser.id,
                 read: false
             })
         }).then(stuff => stuff.json()).then(it => alert('Your Email Has Been Sent'))

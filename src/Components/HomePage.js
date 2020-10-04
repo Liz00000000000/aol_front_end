@@ -17,7 +17,6 @@ export class HomePage extends Component {
         const sentMail = this.props.emails.filter(email => email.sender_id === this.props.loggedInUser.id)
         yourMail.sort((a, b) => (a.id > b.id) ? -1 : 1)
         sentMail.sort((a, b) => (a.id > b.id) ? -1 : 1)
-        console.log(sentMail)
          return (
              <div className='email-holder'>
                  <div className='buttons'>
