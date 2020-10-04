@@ -16,7 +16,6 @@ export class InstantMessageer extends Component {
     render() {
         const friends = this.props.friends.filter((v, i, a) => a.indexOf(v) === i); 
         let uniqueFriends = [...new Set(friends)];
-        console.log(uniqueFriends)
         return (
             <div className='aim-box'>
                 <div className='instant-message-div'>

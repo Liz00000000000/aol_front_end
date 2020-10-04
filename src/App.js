@@ -38,6 +38,10 @@ export class App extends Component {
     fetch(awayMessagesUrl).then(res => res.json()).then(awayMessages => this.setState({ awayMessages }))
   }
 
+  componentDidUpdate(){
+    fetch(emailsUrl).then(res => res.json()).then(emails => this.setState({ emails }))
+  }
+
   keepMailOpen = () => this.setState({ showMail: true })
 
   seeMail = () => this.setState({ showMail: !this.state.showMail })
