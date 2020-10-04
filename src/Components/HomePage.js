@@ -15,6 +15,9 @@ export class HomePage extends Component {
         if(!this.props.showMail) return <h1><i id='mailbutton' className="envelope icon" onClick={this.props.seeMail}></i></h1>
         const yourMail = this.props.emails.filter(email => email.reciever_id === this.props.loggedInUser.id)
         const sentMail = this.props.emails.filter(email => email.sender_id === this.props.loggedInUser.id)
+        yourMail.sort((a, b) => (a.id > b.id) ? -1 : 1)
+        sentMail.sort((a, b) => (a.id > b.id) ? -1 : 1)
+        console.log(sentMail)
          return (
              <div className='email-holder'>
                  <div className='buttons'>
