@@ -58,7 +58,7 @@ export class App extends Component {
         <Route path='/email/:id' render={(history)=> <Mail keepMailOpen={this.keepMailOpen} history={history} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/>}/>
         <Route path='/' render={() => <HomePage seeMail={this.seeMail} showMail={this.state.showMail} users={this.state.users} emails={this.state.emails} loggedInUser={this.state.loggedInUser}/> } />
       </Switch>
-      <InterestsBar myInterests={myInterests} />
+      {/* <InterestsBar myInterests={myInterests} /> */}
     </div>
   )
  }

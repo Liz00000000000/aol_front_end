@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Send from './Send'
 import '../Styles/Mail.css'
 
 export class Mail extends Component {
     state = {
         response: false,
         forward: false,
-        input: ''
+        input: '',
+        messageSent: false
     }
 
     handleOnChange = e => this.setState({ [e.target.name]: e.target.value })
@@ -25,8 +27,8 @@ export class Mail extends Component {
                 sender_id: this.props.loggedInUser.id,
                 read: false
             })
-        }).then(stuff => stuff.json()).then(it => alert('Your Email Has Been Sent'))
-        this.setState({ response: false, forward: false, input: ''})
+        })
+        this.setState({ response: false, forward: false, input: '',  messageSent: true})
     }
 
     componentDidMount(){
@@ -42,6 +44,8 @@ export class Mail extends Component {
 
     handleOnClick = event => this.setState({ [event.target.name]: true })
 
+    outOfSent = () => this.setState({ messageSent: false })
+
     render() {
         const thisId = this.props.history.match.params.id
         const previousEmail = thisId - 1
@@ -49,6 +53,7 @@ export class Mail extends Component {
         const email = this.props.emails.find(email => email.id === parseInt(thisId))
         if (!email) return <div>Loading...</div>
         const sender = this.props.users.find(user => user.id === email.sender_id)
+        if (this.state.messageSent) return <div><Send outOfSent={this.outOfSent} /></div>
         if (this.state.forward) return (
             <div className='individual-email'>
             <div className='ui large card'>
