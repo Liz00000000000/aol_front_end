@@ -15,12 +15,13 @@ export class InstantMessageer extends Component {
 
     render() {
         const friends = this.props.friends.filter((v, i, a) => a.indexOf(v) === i); 
+        let uniqueFriends = [...new Set(friends)];
+        console.log(uniqueFriends)
         return (
             <div className='aim-box'>
                 <div className='instant-message-div'>
                     <div className='ui row'>
-                        {/* <p><strong>Friends Online</strong></p> */}
-                    {friends.map(friend => <IndividualFriend instaBoxVisable={this.instaBoxVisable} key={friend.id} {...friend} users={this.props.users} instantMessages={this.props.instantMesages} loggedInUser={this.props.loggedInUser} />)}
+                    {uniqueFriends.map(friend => <IndividualFriend instaBoxVisable={this.instaBoxVisable} key={friend.id} {...friend} users={this.props.users} instantMessages={this.props.instantMesages} loggedInUser={this.props.loggedInUser} />)}
                     </div>
                 </div>
                 {this.state.instaBoxVisable ? <div><MessageBox removeMessageBox={this.removeMessageBox} friend={this.state.friend} /></div> : null }
